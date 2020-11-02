@@ -1,0 +1,69 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "react-wake-lock",
+  "author": "jorisre",
+  "module": "dist/react-wake-lock.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/react-wake-lock.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/react-wake-lock.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.7.0",
+    "@testing-library/dom": "^7.26.3",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^3.4.2",
+    "@types/dom-screen-wake-lock": "^1.0.0",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "babel-eslint": "^10.1.0",
+    "husky": "^4.3.0",
+    "jest-wake-lock-mock": "^1.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-test-renderer": "^17.0.1",
+    "size-limit": "^4.7.0",
+    "tiny-warning": "^1.0.3",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.5"
+  }
+}
