@@ -22,11 +22,6 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -47,6 +42,8 @@
     }
   ],
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-angular": "^11.0.0",
     "@size-limit/preset-small-lib": "^4.7.0",
     "@testing-library/dom": "^7.26.3",
     "@testing-library/react": "^11.1.0",

@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "tsdx lint",
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+  }
+}
