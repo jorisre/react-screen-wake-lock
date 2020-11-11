@@ -2,7 +2,7 @@
 <p>
   <img alt="npm" src="https://img.shields.io/npm/v/react-wake-lock?style=for-the-badge">
   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/jorisre/react-wake-lock/CI?style=for-the-badge">
-  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/jorisre/react-wake-lock?style=for-the-badge&token=D75F3R5OEO">
+  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/jorisre/react-wake-lock?style=for-the-badge">
   <a href="https://github.com/jorisre/react-wake-lock/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/jorisre/react-wake-lock?style=for-the-badge" />
   </a>
