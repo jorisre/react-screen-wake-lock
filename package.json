@@ -1,7 +1,31 @@
 {
+  "name": "react-wake-lock",
   "version": "0.1.0",
+  "description": "React implementation of the Screen Wake Lock API. It provides a way to prevent devices from dimming or locking the screen when an application needs to keep running.",
+  "author": {
+    "name": "Joris",
+    "email": "me@joris.re",
+    "url": "https://joris.re"
+  },
   "license": "MIT",
+  "homepage": "https://github.com/jorisre/react-wake-lock#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jorisre/react-wake-lock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jorisre/react-wake-lock/issues"
+  },
+  "keywords": [
+    "wakeLock",
+    "wake-lock",
+    "react",
+    "hook",
+    "Screen Wake Lock",
+    "navigator.wakeLock"
+  ],
   "main": "dist/index.js",
+  "module": "dist/react-wake-lock.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -28,9 +52,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-wake-lock",
-  "author": "jorisre",
-  "module": "dist/react-wake-lock.esm.js",
   "size-limit": [
     {
       "path": "dist/react-wake-lock.cjs.production.min.js",
