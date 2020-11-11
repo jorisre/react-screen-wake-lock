@@ -1,6 +1,6 @@
 {
   "name": "react-wake-lock",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "description": "React implementation of the Screen Wake Lock API. It provides a way to prevent devices from dimming or locking the screen when an application needs to keep running.",
   "author": {
     "name": "Joris",
@@ -41,7 +41,8 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "semantic-release": "semantic-release"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -81,6 +82,7 @@
     "tiny-warning": "^1.0.3",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
-    "typescript": "^4.0.5"
+    "typescript": "^4.0.5",
+    "semantic-release": "^17.2.2"
   }
 }
