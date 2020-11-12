@@ -42,7 +42,7 @@ jobs:
   publish-module:
     name: 'Publish Module to NPM on Node ${{ matrix.node }} and ${{ matrix.os }}'
     needs: build
-    if: github.repository == 'jorisre/react-wake-lock' && (github.ref =='refs/heads/main')
+    if: github.repository == 'jorisre/react-screen-wake-lock' && (github.ref =='refs/heads/main')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo

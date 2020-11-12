@@ -1,10 +1,10 @@
-<h1 align="center">Welcome to react-wake-lock 👋</h1>
+<h1 align="center">Welcome to react-screen-wake-lock 👋</h1>
 <p>
-  <img alt="npm" src="https://img.shields.io/npm/v/react-wake-lock?style=for-the-badge">
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/jorisre/react-wake-lock/CI?style=for-the-badge">
-  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/jorisre/react-wake-lock?style=for-the-badge">
-  <a href="https://github.com/jorisre/react-wake-lock/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/jorisre/react-wake-lock?style=for-the-badge" />
+  <img alt="npm" src="https://img.shields.io/npm/v/react-screen-wake-lock?style=for-the-badge">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/jorisre/react-screen-wake-lock/CI?style=for-the-badge">
+  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/jorisre/react-screen-wake-lock?style=for-the-badge">
+  <a href="https://github.com/jorisre/react-screen-wake-lock/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/jorisre/react-screen-wake-lock?style=for-the-badge" />
   </a>
   <a href="https://twitter.com/_jorisre" target="_blank">
     <img alt="Twitter: _jorisre" src="https://img.shields.io/twitter/follow/_jorisre.svg?style=for-the-badge" />
@@ -13,7 +13,7 @@
 
 > React implementation of the [Screen Wake Lock API](https://w3c.github.io/screen-wake-lock/). It provides a way to prevent devices from dimming or locking the screen when an application needs to keep running.
 
-### 🏠 [Homepage](https://github.com/jorisre/react-wake-lock#readme)
+### 🏠 [Homepage](https://github.com/jorisre/react-screen-wake-lock#readme)
 
 <!-- ### ✨ [Demo](www.demo.com) -->
 
@@ -24,15 +24,15 @@
 ## Install
 
 ```sh
-npm i react-wake-lock
+npm i react-screen-wake-lock
 # or
-yarn add react-wake-lock
+yarn add react-screen-wake-lock
 ```
 
 ## Usage
 
 ```jsx
-import { useWakeLock } from 'react-wake-lock';
+import { useWakeLock } from 'react-screen-wake-lock';
 
 function Component() {
   const { isSupported, released, request, release } = useWakeLock({
@@ -86,7 +86,7 @@ export default Component;
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/jorisre/react-wake-lock/issues). You can also take a look at the [contributing guide](https://github.com/jorisre/react-wake-lock/blob/master/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/jorisre/react-screen-wake-lock/issues). You can also take a look at the [contributing guide](https://github.com/jorisre/react-screen-wake-lock/blob/master/CONTRIBUTING.md).
 
 ## Show your support
 
@@ -95,7 +95,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2020 [Joris](https://github.com/jorisre).<br />
-This project is [MIT](https://github.com/jorisre/react-wake-lock/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/jorisre/react-screen-wake-lock/blob/master/LICENSE) licensed.
 
 ---
 

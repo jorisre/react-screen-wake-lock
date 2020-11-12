@@ -1,5 +1,5 @@
 {
-  "name": "react-wake-lock",
+  "name": "react-screen-wake-lock",
   "version": "0.0.0-development",
   "description": "React implementation of the Screen Wake Lock API. It provides a way to prevent devices from dimming or locking the screen when an application needs to keep running.",
   "author": {
@@ -8,13 +8,13 @@
     "url": "https://joris.re"
   },
   "license": "MIT",
-  "homepage": "https://github.com/jorisre/react-wake-lock#readme",
+  "homepage": "https://github.com/jorisre/react-screen-wake-lock#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jorisre/react-wake-lock.git"
+    "url": "https://github.com/jorisre/react-screen-wake-lock.git"
   },
   "bugs": {
-    "url": "https://github.com/jorisre/react-wake-lock/issues"
+    "url": "https://github.com/jorisre/react-screen-wake-lock/issues"
   },
   "keywords": [
     "wakeLock",
@@ -25,7 +25,7 @@
     "navigator.wakeLock"
   ],
   "main": "dist/index.js",
-  "module": "dist/react-wake-lock.esm.js",
+  "module": "dist/react-screen-wake-lock.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -55,11 +55,11 @@
   },
   "size-limit": [
     {
-      "path": "dist/react-wake-lock.cjs.production.min.js",
+      "path": "dist/react-screen-wake-lock.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/react-wake-lock.esm.js",
+      "path": "dist/react-screen-wake-lock.esm.js",
       "limit": "10 KB"
     }
   ],
