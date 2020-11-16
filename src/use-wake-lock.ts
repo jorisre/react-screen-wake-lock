@@ -1,14 +1,17 @@
 import * as React from 'react';
 import warning from 'tiny-warning';
 
-export type WakeLockOptions =
-  | {
-      onError?: (error: Error) => void;
-      onRequest?: () => void;
-    }
-  | undefined;
+export interface WakeLockOptions {
+  onError?: (error: Error) => void;
+  onRequest?: () => void;
+  onRelease?: EventListener;
+}
 
-export const useWakeLock = ({ onError, onRequest }: WakeLockOptions = {}) => {
+export const useWakeLock = ({
+  onError,
+  onRequest,
+  onRelease,
+}: WakeLockOptions | undefined = {}) => {
   const [released, setReleased] = React.useState<boolean | undefined>();
   const wakeLock = React.useRef<WakeLockSentinel | null>(null);
 
@@ -39,13 +42,15 @@ export const useWakeLock = ({ onError, onRequest }: WakeLockOptions = {}) => {
           wakeLock.current = null;
         });
 
+        if (onRelease != null) wakeLock.current.onrelease = onRelease;
+
         onRequest?.();
         setReleased(wakeLock.current.released ?? false);
       } catch (error) {
         onError?.(error);
       }
     },
-    [isSupported, onRequest, onError]
+    [isSupported, onRequest, onError, onRelease]
   );
 
   const release = React.useCallback(async () => {

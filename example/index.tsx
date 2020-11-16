@@ -7,6 +7,7 @@ const App = () => {
   const { isSupported, released, request, release } = useWakeLock({
     onRequest: () => alert('Screen Wake Lock: requested!'),
     onError: () => alert('An error happened 💥'),
+    onRelease: () => alert('Screen Wake Lock: released!'),
   });
 
   return (
