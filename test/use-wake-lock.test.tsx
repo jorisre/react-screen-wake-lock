@@ -156,3 +156,22 @@ test('in development|test show a warning if `request` is called more than once w
     '`request` called multiple times without `release`.'
   );
 });
+
+test('useWakeLock should call `onRelease` when wakeLockSentinel is released', async () => {
+  const handleRelease = jest.fn();
+  const { result } = renderHook<
+    WakeLockOptions,
+    ReturnType<typeof useWakeLock>
+  >(props => useWakeLock(props), {
+    initialProps: { onRelease: handleRelease },
+  });
+
+  expect(handleRelease).not.toHaveBeenCalled();
+
+  await act(async () => {
+    await result.current.request();
+    await result.current.release();
+  });
+
+  expect(handleRelease).toHaveBeenCalledWith(expect.any(Event));
+});

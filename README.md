@@ -38,6 +38,7 @@ function Component() {
   const { isSupported, released, request, release } = useWakeLock({
     onRequest: () => alert('Screen Wake Lock: requested!'),
     onError: () => alert('An error happened 💥'),
+    onRelease: () => alert('Screen Wake Lock: released!'),
   });
 
   return (
@@ -62,11 +63,11 @@ export default Component;
 
 ### Options
 
-|   Option    |                        description                         |   default   | required |
-| :---------: | :--------------------------------------------------------: | :---------: | :------: |
-| `onRequest` |    called on successfully `navigator.wakeLock.request`     | `undefined` |  false   |
-|  `onError`  | called when caught error from `navigator.wakeLock.request` | `undefined` |  false   |
-| `onRelease` |                        Coming soon                         | `undefined` |  false   |
+|   Option    |                          description                          |   default   | required |
+| :---------: | :-----------------------------------------------------------: | :---------: | :------: |
+| `onRequest` |      called on successfully `navigator.wakeLock.request`      | `undefined` |  false   |
+|  `onError`  | called when caught an error from `navigator.wakeLock.request` | `undefined` |  false   |
+| `onRelease` |               called when wake lock is released               | `undefined` |  false   |
 
 ### Returns
 
