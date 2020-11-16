@@ -74,7 +74,7 @@ export default Component;
 |     Name      |                                      description                                      |   type   |
 | :-----------: | :-----------------------------------------------------------------------------------: | :------: |
 | `isSupported` |                     Browser support for the Screen Wake Lock API                      | boolean  |
-|  `released`   | Once WakeLock is released, `released` become `true` and the value never changes again | boolean  |
+|  `released`   | Once WakeLock is released, `released` become `true` and the value never changes again | boolean  | undefined |
 |   `request`   |        Returns a promise which allows control over screen dimming and locking         | function |
 |   `release`   |  Returns a promise that is resolved once the sentinel has been successfully released  | function |
 
