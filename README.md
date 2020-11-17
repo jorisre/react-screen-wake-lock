@@ -15,7 +15,7 @@
 
 ### 🏠 [Homepage](https://github.com/jorisre/react-screen-wake-lock#readme)
 
-<!-- ### ✨ [Demo](www.demo.com) -->
+### ✨ [Demo](https://react-screen-wake-lock.vercel.app/)
 
 ## Prerequisites
 
