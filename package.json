@@ -42,7 +42,9 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "install:example": "yarn && (cd example && yarn)",
+    "build:example": "yarn build && (cd example && yarn build)"
   },
   "peerDependencies": {
     "react": ">=16"
