@@ -28,10 +28,13 @@ export const useWakeLock = ({
         return;
       }
 
-      warning(
-        wakeLock.current != null,
-        '`request` called multiple times without `release`.'
-      );
+      if (wakeLock.current != null) {
+        warning(
+          wakeLock.current != null,
+          'Calling `request` multiple times without `release` has no effect'
+        );
+        return;
+      }
 
       try {
         wakeLock.current = await window.navigator.wakeLock.request(type);
