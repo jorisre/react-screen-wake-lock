@@ -78,6 +78,10 @@ export default Component;
 |   `request`   |        Returns a promise which allows control over screen dimming and locking         | function |
 |   `release`   |  Returns a promise that is resolved once the sentinel has been successfully released  | function |
 
+## Testing
+
+To write tests with ease, follow this [guide](https://github.com/jorisre/jest-wake-lock-mock#readme)
+
 ## Author
 
 👤 **Joris**
