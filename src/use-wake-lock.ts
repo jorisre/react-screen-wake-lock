@@ -18,6 +18,13 @@ export const useWakeLock = ({
   // https://caniuse.com/mdn-api_wakelock
   const isSupported = 'wakeLock' in window.navigator;
 
+  const handleRelease = (e: Event) => {
+    // Default to `true` - `released` API is experimental: https://caniuse.com/mdn-api_wakelocksentinel_released
+    setReleased(wakeLock.current?.released ?? true);
+    onRelease?.(e);
+    wakeLock.current = null;
+  };
+
   const request = React.useCallback(
     async (type: WakeLockType = 'screen') => {
       if (!isSupported) {
@@ -36,13 +43,7 @@ export const useWakeLock = ({
       try {
         wakeLock.current = await window.navigator.wakeLock.request(type);
 
-        wakeLock.current.addEventListener('release', () => {
-          // Default to `true` - `released` API is experimental: https://caniuse.com/mdn-api_wakelocksentinel_released
-          setReleased(wakeLock.current?.released ?? true);
-          wakeLock.current = null;
-        });
-
-        if (onRelease != null) wakeLock.current.onrelease = onRelease;
+        wakeLock.current.onrelease = handleRelease;
 
         onRequest?.();
         setReleased(wakeLock.current.released ?? false);
@@ -50,7 +51,7 @@ export const useWakeLock = ({
         onError?.(error);
       }
     },
-    [isSupported, onRequest, onError, onRelease]
+    [isSupported, onRequest, onError, handleRelease]
   );
 
   const release = React.useCallback(async () => {
