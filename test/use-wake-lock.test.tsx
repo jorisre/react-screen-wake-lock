@@ -153,8 +153,9 @@ test('in development|test show a warning if `request` is called more than once w
 
   expect(warning).toHaveBeenCalledWith(
     true,
-    '`request` called multiple times without `release`.'
+    'Calling `request` multiple times without `release` has no effect'
   );
+  expect(window.navigator.wakeLock.request).toHaveBeenCalledTimes(1);
 });
 
 test('useWakeLock should call `onRelease` when wakeLockSentinel is released', async () => {

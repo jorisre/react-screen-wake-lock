@@ -4,6 +4,7 @@ module.exports = {
     'jest-wake-lock-mock',
   ],
   restoreMocks: true,
+  clearMocks: true,
   globals: {
     __DEV__: true,
   },
