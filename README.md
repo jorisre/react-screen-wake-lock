@@ -22,7 +22,11 @@
 `react-screen-wake-lock` use native Screen Wake Lock API under the hood which is not supported by all browsers.
 
 <a href="https://caniuse.com/wake-lock">
-  <img src="https://caniuse.bitsofco.de/image/wake-lock.webp" width="500px"/>
+  <picture>
+    <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/wake-lock.webp" width="600px">
+    <source type="image/png" srcset="https://caniuse.bitsofco.de/image/wake-lock.png" width="600px">
+    <img src="https://caniuse.bitsofco.de/image/wake-lock.jpg" alt="Data on support for the wake-lock feature across the major browsers from caniuse.com" width="600px">
+  </picture>
 </a>
 
 ## Install
