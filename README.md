@@ -21,6 +21,12 @@
 
 - node >=10
 
+## Browser support [Screen Wake Lock API](https://caniuse.com/wake-lock)
+
+<a href="https://caniuse.com/wake-lock">
+  <img src="https://caniuse.bitsofco.de/image/wake-lock.webp" width="400px"/>
+</a>
+
 ## Install
 
 ```sh
