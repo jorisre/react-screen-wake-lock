@@ -3,8 +3,8 @@
   <img alt="npm" src="https://img.shields.io/npm/v/react-screen-wake-lock?style=for-the-badge">
   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/jorisre/react-screen-wake-lock/CI?style=for-the-badge">
   <img alt="Codecov" src="https://img.shields.io/codecov/c/github/jorisre/react-screen-wake-lock?style=for-the-badge">
-  <a href="https://github.com/jorisre/react-screen-wake-lock/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/jorisre/react-screen-wake-lock?style=for-the-badge" />
+  <a href="https://bundlephobia.com/result?p=react-screen-wake-lock">
+    <img src="https://img.shields.io/bundlephobia/minzip/react-screen-wake-lock?style=for-the-badge" />
   </a>
   <a href="https://twitter.com/_jorisre" target="_blank">
     <img alt="Twitter: _jorisre" src="https://img.shields.io/twitter/follow/_jorisre.svg?style=for-the-badge" />
