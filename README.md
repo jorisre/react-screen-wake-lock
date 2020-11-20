@@ -99,7 +99,7 @@ To write tests with ease, follow this [guide](https://github.com/jorisre/jest-wa
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/jorisre/react-screen-wake-lock/issues). You can also take a look at the [contributing guide](https://github.com/jorisre/react-screen-wake-lock/blob/master/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/jorisre/react-screen-wake-lock/issues). You can also take a look at the [contributing guide](https://github.com/jorisre/react-screen-wake-lock/blob/master/CONTRIBUTING.md) and [code of conduct](https://github.com/jorisre/react-screen-wake-lock/blob/master/CODE_OF_CONDUCT.md).
 
 ## Show your support
 
