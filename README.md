@@ -17,11 +17,9 @@
 
 ### ✨ [Demo](https://react-screen-wake-lock.vercel.app/)
 
-## Prerequisites
-
-- node >=10
-
 ## Browser support [Screen Wake Lock API](https://caniuse.com/wake-lock)
+
+`react-screen-wake-lock` use native Screen Wake Lock API under the hood which is not supported by all browsers.
 
 <a href="https://caniuse.com/wake-lock">
   <img src="https://caniuse.bitsofco.de/image/wake-lock.webp" width="400px"/>
