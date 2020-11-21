@@ -24,9 +24,16 @@
     "Screen Wake Lock",
     "navigator.wakeLock"
   ],
-  "main": "dist/index.js",
-  "module": "dist/react-screen-wake-lock.esm.js",
-  "typings": "dist/index.d.ts",
+  "sideEffects": true,
+  "source": "src/index.ts",
+  "main": "dist/react-screen-wake-lock.js",
+  "module": "dist/react-screen-wake-lock.module.js",
+  "jsnext:main": "dist/react-screen-wake-lock.module.js",
+  "unpkg": "dist/react-screen-wake-lock.umd.js",
+  "jsdelivr": "dist/react-screen-wake-lock.umd.js",
+  "umd:main": "dist/react-screen-wake-lock.umd.js",
+  "esmodule": "dist/react-screen-wake-lock.modern.js",
+  "typings": "dist/react-screen-wake-lock.d.ts",
   "files": [
     "dist",
     "src"
@@ -35,11 +42,16 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
+    "start": "microbundle watch",
+    "prebuild": "rimraf dist",
+    "build": "npm-run-all --parallel build:lib build:cjs:*",
+    "build:lib": "microbundle build -f umd,es,modern",
+    "build:cjs:entry": "node ./scripts/create-cjs-entry-file.js",
+    "build:cjs:prod": "microbundle -i src/index.ts -o dist/react-screen-wake-lock.production.js --define process.env.NODE_ENV=production --no-pkg-main -f cjs",
+    "build:cjs:dev": "microbundle -i src/index.ts -o dist/react-screen-wake-lock.development.js --no-compress --no-pkg-main -f cjs",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "prepare": "yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "semantic-release": "semantic-release",
@@ -57,34 +69,42 @@
   },
   "size-limit": [
     {
-      "path": "dist/react-screen-wake-lock.cjs.production.min.js",
-      "limit": "10 KB"
+      "path": "dist/react-screen-wake-lock.production.js",
+      "limit": "420 B"
     },
     {
-      "path": "dist/react-screen-wake-lock.esm.js",
-      "limit": "10 KB"
+      "path": "dist/react-screen-wake-lock.module.js",
+      "limit": "450 B"
+    },
+    {
+      "path": "dist/react-screen-wake-lock.umd.js",
+      "limit": "435 B"
     }
   ],
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-angular": "^11.0.0",
-    "@size-limit/preset-small-lib": "^4.7.0",
-    "@testing-library/dom": "^7.26.6",
-    "@testing-library/react": "^11.1.2",
+    "@size-limit/preset-small-lib": "^4.9.0",
+    "@testing-library/dom": "^7.28.1",
+    "@testing-library/react": "^11.2.2",
     "@testing-library/react-hooks": "^3.4.2",
     "@types/dom-screen-wake-lock": "^1.0.0",
-    "@types/react": "^16.9.56",
-    "@types/react-dom": "^16.9.9",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "babel-jest": "^26.6.3",
     "husky": "^4.3.0",
-    "jest-wake-lock-mock": "^1.0.2",
+    "jest-wake-lock-mock": "^1.1.0",
+    "microbundle": "^0.12.4",
+    "npm-run-all": "^4.1.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-test-renderer": "^17.0.1",
-    "size-limit": "^4.7.0",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.2.4",
+    "size-limit": "^4.9.0",
     "tiny-warning": "^1.0.3",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
-    "typescript": "^4.0.5",
-    "semantic-release": "^17.2.2"
+    "typescript": "^4.1.2"
   }
 }
