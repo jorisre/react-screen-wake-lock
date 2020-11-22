@@ -20,17 +20,14 @@ export const useWakeLock = ({
 
   const request = React.useCallback(
     async (type: WakeLockType = 'screen') => {
-      if (!isSupported) {
+      const isWakeLockAlreadyDefined = wakeLock.current != null;
+      if (!isSupported || isWakeLockAlreadyDefined) {
         warning(
           !isSupported,
           "Calling the `request` function has no effect, Wake Lock Screen API isn't supported"
         );
-        return;
-      }
-
-      if (wakeLock.current != null) {
         warning(
-          wakeLock.current != null,
+          isWakeLockAlreadyDefined,
           'Calling `request` multiple times without `release` has no effect'
         );
         return;
@@ -41,38 +38,36 @@ export const useWakeLock = ({
 
         wakeLock.current.onrelease = (e: Event) => {
           // Default to `true` - `released` API is experimental: https://caniuse.com/mdn-api_wakelocksentinel_released
-          setReleased(wakeLock.current?.released ?? true);
-          onRelease?.(e);
+          setReleased((wakeLock.current && wakeLock.current.released) ?? true);
+          onRelease && onRelease(e);
           wakeLock.current = null;
         };
 
         onRequest?.();
-        setReleased(wakeLock.current.released ?? false);
+        setReleased((wakeLock.current && wakeLock.current.released) ?? false);
       } catch (error) {
-        onError?.(error);
+        onError && onError(error);
       }
     },
     [isSupported, onRequest, onError, onRelease]
   );
 
   const release = React.useCallback(async () => {
-    if (!isSupported) {
+    const isWakeLockUndefined = wakeLock.current == null;
+    if (!isSupported || isWakeLockUndefined) {
       warning(
         !isSupported,
         "Calling the `release` function has no effect, Wake Lock Screen API isn't supported"
       );
-      return;
-    }
 
-    if (wakeLock.current == null) {
       warning(
-        wakeLock.current == null,
+        isWakeLockUndefined,
         'Calling `release` before `request` has no effect.'
       );
       return;
     }
 
-    await wakeLock.current?.release();
+    wakeLock.current && (await wakeLock.current.release());
   }, [isSupported]);
 
   return {
@@ -80,6 +75,6 @@ export const useWakeLock = ({
     request,
     released,
     release,
-    type: wakeLock?.current?.type,
+    type: (wakeLock.current && wakeLock.current.type) || undefined,
   };
 };
