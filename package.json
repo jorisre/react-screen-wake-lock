@@ -50,7 +50,7 @@
     "build:cjs:prod": "microbundle -i src/index.ts -o dist/react-screen-wake-lock.production.js --define process.env.NODE_ENV=production --no-pkg-main -f cjs",
     "build:cjs:dev": "microbundle -i src/index.ts -o dist/react-screen-wake-lock.development.js --no-compress --no-pkg-main -f cjs",
     "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
+    "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx .",
     "prepare": "yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why",
@@ -60,12 +60,6 @@
   },
   "peerDependencies": {
     "react": ">=16"
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
   },
   "size-limit": [
     {
@@ -91,11 +85,19 @@
     "@types/dom-screen-wake-lock": "^1.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
     "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^3.10.1",
     "husky": "^4.3.0",
     "jest-wake-lock-mock": "^1.1.0",
+    "lint-staged": ">=10",
     "microbundle": "^0.12.4",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-test-renderer": "^17.0.1",
@@ -106,5 +108,9 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
     "typescript": "^4.1.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
