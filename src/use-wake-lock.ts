@@ -52,7 +52,7 @@ export const useWakeLock = ({
         onError?.(error);
       }
     },
-    [isSupported, onRequest, onError, onRelease, setReleased]
+    [isSupported, onRequest, onError, onRelease]
   );
 
   const release = React.useCallback(async () => {
