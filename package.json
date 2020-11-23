@@ -24,15 +24,20 @@
     "Screen Wake Lock",
     "navigator.wakeLock"
   ],
-  "sideEffects": true,
+  "sideEffects": false,
   "source": "src/index.ts",
   "main": "dist/react-screen-wake-lock.js",
   "module": "dist/react-screen-wake-lock.module.js",
-  "jsnext:main": "dist/react-screen-wake-lock.module.js",
-  "unpkg": "dist/react-screen-wake-lock.umd.js",
-  "jsdelivr": "dist/react-screen-wake-lock.umd.js",
   "umd:main": "dist/react-screen-wake-lock.umd.js",
-  "esmodule": "dist/react-screen-wake-lock.modern.js",
+  "unpkg": "dist/react-screen-wake-lock.umd.js",
+  "exports": {
+    ".": {
+      "browser": "./dist/react-screen-wake-lock.module.js",
+      "umd": "./dist/react-screen-wake-lock.umd.js",
+      "import": "./dist/react-screen-wake-lock.modern.js",
+      "require": "./dist/react-screen-wake-lock.js"
+    }
+  },
   "typings": "dist/react-screen-wake-lock.d.ts",
   "files": [
     "dist",
@@ -44,27 +49,29 @@
   "scripts": {
     "start": "microbundle watch",
     "prebuild": "rimraf dist",
-    "build": "npm-run-all --parallel build:lib build:cjs:*",
-    "build:lib": "microbundle build -f umd,es,modern",
-    "build:cjs:entry": "node ./scripts/create-cjs-entry-file.js",
-    "build:cjs:prod": "microbundle -i src/index.ts -o dist/react-screen-wake-lock.production.js --define process.env.NODE_ENV=production --no-pkg-main -f cjs",
-    "build:cjs:dev": "microbundle -i src/index.ts -o dist/react-screen-wake-lock.development.js --no-compress --no-pkg-main -f cjs",
+    "build": "npm-run-all --parallel build:*",
+    "build:other": "microbundle --define process.env.NODE_ENV=production -f cjs,umd,modern",
+    "build:es": "microbundle -f es",
     "test": "jest",
     "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx .",
     "prepare": "yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "semantic-release": "semantic-release",
-    "install:example": "yarn && (cd example && yarn)",
-    "build:example": "yarn build && (cd example && yarn build)"
+    "example:install": "yarn && (cd example && yarn)",
+    "example:build": "yarn build && (cd example && yarn build)"
   },
   "peerDependencies": {
     "react": ">=16"
   },
   "size-limit": [
     {
-      "path": "dist/react-screen-wake-lock.production.js",
+      "path": "dist/react-screen-wake-lock.js",
       "limit": "389 B"
+    },
+    {
+      "path": "dist/react-screen-wake-lock.modern.js",
+      "limit": "311 B"
     },
     {
       "path": "dist/react-screen-wake-lock.module.js",
