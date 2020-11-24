@@ -67,19 +67,19 @@
   "size-limit": [
     {
       "path": "dist/react-screen-wake-lock.js",
-      "limit": "389 B"
+      "limit": "384 B"
     },
     {
       "path": "dist/react-screen-wake-lock.modern.js",
-      "limit": "311 B"
+      "limit": "304 B"
     },
     {
       "path": "dist/react-screen-wake-lock.module.js",
-      "limit": "411 B"
+      "limit": "406 B"
     },
     {
       "path": "dist/react-screen-wake-lock.umd.js",
-      "limit": "395 B"
+      "limit": "389 B"
     }
   ],
   "devDependencies": {

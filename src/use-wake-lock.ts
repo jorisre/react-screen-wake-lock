@@ -16,7 +16,7 @@ export const useWakeLock = ({
   const wakeLock = React.useRef<WakeLockSentinel | null>(null);
 
   // https://caniuse.com/mdn-api_wakelock
-  const isSupported = 'wakeLock' in window.navigator;
+  const isSupported = 'wakeLock' in navigator;
 
   const request = React.useCallback(
     async (type: WakeLockType = 'screen') => {
@@ -34,7 +34,7 @@ export const useWakeLock = ({
       }
 
       try {
-        wakeLock.current = await window.navigator.wakeLock.request(type);
+        wakeLock.current = await navigator.wakeLock.request(type);
 
         wakeLock.current.onrelease = (e: Event) => {
           // Default to `true` - `released` API is experimental: https://caniuse.com/mdn-api_wakelocksentinel_released
