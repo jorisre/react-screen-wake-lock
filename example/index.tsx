@@ -22,15 +22,19 @@ const App = () => {
   ]);
   const { isSupported, request, release } = useWakeLock({
     onRequest: () =>
-      setLogs(l =>
+      setLogs((l) =>
         addLog({ type: 'request', message: 'Wake Lock is active!' }, l)
       ),
     onError: () =>
-      setLogs(l => addLog({ type: 'error', message: 'An error happened' }, l)),
-    onRelease: () =>
-      setLogs(l =>
-        addLog({ type: 'release', message: 'Wake Lock was released!' }, l)
+      setLogs((l) =>
+        addLog({ type: 'error', message: 'An error happened' }, l)
       ),
+    onRelease: () => {
+      setChecked(false);
+      setLogs((l) =>
+        addLog({ type: 'release', message: 'Wake Lock was released!' }, l)
+      );
+    },
   });
 
   const handleChange = (value: boolean) => {
