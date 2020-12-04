@@ -38,7 +38,7 @@
       "require": "./dist/react-screen-wake-lock.js"
     }
   },
-  "typings": "dist/react-screen-wake-lock.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
