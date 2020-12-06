@@ -47,7 +47,6 @@
     "node": ">=10"
   },
   "scripts": {
-    "postinstall": "yarn install --cwd example",
     "start": "microbundle watch",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
@@ -58,9 +57,7 @@
     "prepare": "yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "semantic-release": "semantic-release",
-    "example:install": "yarn && (cd example && yarn)",
-    "example:build": "yarn build && (cd example && yarn build)"
+    "semantic-release": "semantic-release"
   },
   "peerDependencies": {
     "react": ">=16"
