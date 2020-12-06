@@ -38,6 +38,7 @@ main {
   align-content: center;
   grid-auto-rows: min-content;
   row-gap: 35px;
+  padding: 1rem;
 }
 
 h1 {
@@ -46,13 +47,6 @@ h1 {
   text-align: center;
 }
 
-.lock {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .support {
   display: flex;
   justify-content: center;

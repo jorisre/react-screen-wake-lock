@@ -1,0 +1,65 @@
+:root {
+  --toggle-width: 80px;
+  --toggle-height: calc(var(--toggle-width) / 2);
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggle input:disabled {
+  cursor: not-allowed;
+}
+
+.toggle input {
+  display: none;
+}
+.toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  border-radius: var(--toggle-width);
+  background: var(--accent-2);
+  cursor: pointer;
+}
+
+.toggle .slider:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: var(--toggle-height);
+  border-radius: 50%;
+  background-color: var(--accent-7);
+  transition: 0.2s ease-in-out;
+}
+
+.toggle input:checked + .slider:before {
+  background-color: var(--green);
+  transform: translateX(100%);
+}
+
+.toggle input:disabled + .slider {
+  cursor: not-allowed;
+}
+
+.toggle .icon {
+  opacity: 0;
+  transition: 0.25s ease-in-out;
+}
+
+.toggle input:checked ~ .slider .icon {
+  opacity: 1;
+}

@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 const Supported = () => (
   <span className="support">
     <svg
@@ -12,9 +10,8 @@ const Supported = () => (
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="feather feather-check"
     >
-      <polyline points="20 6 9 17 4 12"></polyline>
+      <polyline points="20 6 9 17 4 12" />
     </svg>
     &nbsp; Screen Wake Lock API supported
   </span>
