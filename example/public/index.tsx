@@ -67,7 +67,7 @@ const App = () => {
 
 hydrate(<App />);
 
-export async function prerender(data) {
+export async function prerender(data: any) {
   const { default: prerender } = await import('preact-iso/prerender');
   return await prerender(<App {...data} />);
 }
