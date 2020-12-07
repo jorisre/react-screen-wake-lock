@@ -1,4 +1,4 @@
-import styles from './toggle.module.css';
+import './switch.css';
 
 interface Props {
   disabled?: boolean;
@@ -9,7 +9,7 @@ interface Props {
 function Switch({ disabled, checked, onChange }: Props) {
   return (
     <label
-      className={styles.toggle}
+      className="switch"
       role="switch"
       aria-checked={checked}
       aria-label="Toggle Screen Wake Lock"
@@ -20,7 +20,7 @@ function Switch({ disabled, checked, onChange }: Props) {
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
       />
-      <span className={styles.slider}>
+      <span className="slider">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -31,7 +31,7 @@ function Switch({ disabled, checked, onChange }: Props) {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={styles.icon}
+          className="icon"
         >
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
           <path d="M7 11V7a5 5 0 0 1 10 0v4" />

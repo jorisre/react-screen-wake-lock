@@ -1,24 +1,25 @@
 :root {
-  --toggle-width: 80px;
-  --toggle-height: calc(var(--toggle-width) / 2);
+  --switch-width: 80px;
+  --switch-height: calc(var(--switch-width) / 2);
 }
 
-.toggle {
+.switch {
   position: relative;
   display: inline-block;
-  width: var(--toggle-width);
-  height: var(--toggle-height);
+  width: var(--switch-width);
+  height: var(--switch-height);
   -webkit-tap-highlight-color: transparent;
 }
 
-.toggle input:disabled {
+.switch input {
+  display: none;
+}
+
+.switch input:disabled {
   cursor: not-allowed;
 }
 
-.toggle input {
-  display: none;
-}
-.toggle .slider {
+.switch .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -28,38 +29,38 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  border-radius: var(--toggle-width);
+  border-radius: var(--switch-width);
   background: var(--accent-2);
   cursor: pointer;
 }
 
-.toggle .slider:before {
+.switch .slider:before {
   content: '';
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   display: block;
-  width: var(--toggle-height);
+  width: var(--switch-height);
   border-radius: 50%;
   background-color: var(--accent-7);
   transition: 0.2s ease-in-out;
 }
 
-.toggle input:checked + .slider:before {
+.switch input:checked + .slider:before {
   background-color: var(--green);
   transform: translateX(100%);
 }
 
-.toggle input:disabled + .slider {
+.switch input:disabled + .slider {
   cursor: not-allowed;
 }
 
-.toggle .icon {
+.switch .icon {
   opacity: 0;
   transition: 0.25s ease-in-out;
 }
 
-.toggle input:checked ~ .slider .icon {
+.switch input:checked ~ .slider .icon {
   opacity: 1;
 }

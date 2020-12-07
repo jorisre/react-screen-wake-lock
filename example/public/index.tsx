@@ -1,7 +1,7 @@
 import hydrate from 'preact-iso/hydrate';
 import { useState } from 'react';
 import { useWakeLock } from 'react-screen-wake-lock';
-import Toggle from './components/Toggle';
+import Switch from './components/Switch';
 import Supported from './components/Supported';
 import NotSupported from './components/NotSupported';
 
@@ -43,7 +43,7 @@ const App = () => {
   return (
     <main>
       <h1>react-screen-wake-lock</h1>
-      <Toggle
+      <Switch
         disabled={!isSupported}
         checked={checked}
         onChange={handleChange}
