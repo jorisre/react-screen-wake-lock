@@ -1,5 +1,3 @@
-import './switch.css';
-
 interface Props {
   disabled?: boolean;
   checked?: boolean;
