@@ -34,7 +34,7 @@
     ".": {
       "browser": "./dist/react-screen-wake-lock.module.js",
       "umd": "./dist/react-screen-wake-lock.umd.js",
-      "import": "./dist/react-screen-wake-lock.modern.js",
+      "import": "./dist/react-screen-wake-lock.module.js",
       "require": "./dist/react-screen-wake-lock.js"
     }
   },
@@ -66,54 +66,54 @@
   "size-limit": [
     {
       "path": "dist/react-screen-wake-lock.js",
-      "limit": "384 B"
+      "limit": "393 B"
     },
     {
       "path": "dist/react-screen-wake-lock.modern.js",
-      "limit": "304 B"
+      "limit": "314 B"
     },
     {
       "path": "dist/react-screen-wake-lock.module.js",
-      "limit": "406 B"
+      "limit": "415 B"
     },
     {
       "path": "dist/react-screen-wake-lock.umd.js",
-      "limit": "389 B"
+      "limit": "398 B"
     }
   ],
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-angular": "^11.0.0",
-    "@size-limit/preset-small-lib": "^4.9.0",
-    "@testing-library/dom": "^7.28.1",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/react-hooks": "^3.4.2",
+    "@size-limit/preset-small-lib": "^4.9.1",
+    "@testing-library/dom": "^7.29.4",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/react-hooks": "^5.0.3",
     "@types/dom-screen-wake-lock": "^1.0.0",
-    "@types/jest": "^26.0.15",
+    "@types/jest": "^26.0.20",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.8.1",
-    "@typescript-eslint/parser": "^4.8.1",
-    "eslint": "^7.14.0",
-    "eslint-plugin-react": "^7.21.5",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.18.0",
+    "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.10.1",
-    "husky": "^4.3.0",
+    "husky": "^4.3.8",
     "jest": "^26.6.3",
     "jest-wake-lock-mock": "^1.1.0",
-    "lint-staged": ">=10",
-    "microbundle": "^0.12.4",
+    "lint-staged": ">=10.5.3",
+    "microbundle": "^0.13.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.0",
+    "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-test-renderer": "^17.0.1",
     "rimraf": "^3.0.2",
-    "semantic-release": "^17.2.4",
-    "size-limit": "^4.9.0",
+    "semantic-release": "^17.3.7",
+    "size-limit": "^4.9.1",
     "tiny-warning": "^1.0.3",
-    "ts-jest": "^26.4.4",
-    "typescript": "^4.1.2"
+    "ts-jest": "^26.5.0",
+    "typescript": "^4.1.3"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --fix",

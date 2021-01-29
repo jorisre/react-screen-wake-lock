@@ -16,7 +16,7 @@ export const useWakeLock = ({
   const wakeLock = React.useRef<WakeLockSentinel | null>(null);
 
   // https://caniuse.com/mdn-api_wakelock
-  const isSupported = 'wakeLock' in navigator;
+  const isSupported = typeof window !== 'undefined' && 'wakeLock' in navigator;
 
   const request = React.useCallback(
     async (type: WakeLockType = 'screen') => {
