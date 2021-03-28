@@ -1,5 +1,4 @@
-import hydrate from 'preact-iso/hydrate';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useWakeLock } from 'react-screen-wake-lock';
 import Switch from './components/Switch';
 import Supported from './components/Supported';
@@ -65,9 +64,4 @@ const App = () => {
   );
 };
 
-hydrate(<App />);
-
-export async function prerender(data: any) {
-  const { default: prerender } = await import('preact-iso/prerender');
-  return await prerender(<App {...data} />);
-}
+export default App;

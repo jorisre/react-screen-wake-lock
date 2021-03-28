@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Supported = () => (
   <span className="support">
     <svg
