@@ -47,7 +47,6 @@
     "node": ">=10"
   },
   "scripts": {
-    "postinstall": "yarn --cwd example install",
     "start": "microbundle watch",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
