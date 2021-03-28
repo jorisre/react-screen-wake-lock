@@ -61,7 +61,7 @@
     "semantic-release": "semantic-release"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": "^16 || ^17"
   },
   "size-limit": [
     {
