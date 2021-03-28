@@ -1,3 +1,5 @@
+import React from 'react';
+
 const NotSupported = () => (
   <span className="support">
     <svg
