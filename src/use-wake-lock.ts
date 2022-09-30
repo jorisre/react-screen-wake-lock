@@ -38,14 +38,14 @@ export const useWakeLock = ({
 
         wakeLock.current.onrelease = (e: Event) => {
           // Default to `true` - `released` API is experimental: https://caniuse.com/mdn-api_wakelocksentinel_released
-          setReleased((wakeLock.current && wakeLock.current.released) ?? true);
+          setReleased((wakeLock.current && wakeLock.current.released) || true);
           onRelease && onRelease(e);
           wakeLock.current = null;
         };
 
-        onRequest?.();
-        setReleased((wakeLock.current && wakeLock.current.released) ?? false);
-      } catch (error) {
+        onRequest && onRequest();
+        setReleased((wakeLock.current && wakeLock.current.released) || false);
+      } catch (error: any) {
         onError && onError(error);
       }
     },
