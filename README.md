@@ -1,6 +1,6 @@
-<div align="center"><strong>☎️ react-screen-wake-lock</strong></div>
+<div align="center" style="font-size: ><h1>🌗 react-screen-wake-lock</strong></div>
 <p align="center">
-Tiniest React implementation of the Screen Wake Lock API. It provides a way to prevent devices from dimming or locking the screen when an application needs to keep running.
+Tiniest React implementation of the Screen Wake Lock API. <br/>It provides a way to prevent devices from dimming or locking the screen when an application needs to keep running.
 </p>
 
 <br />
@@ -17,12 +17,12 @@ Tiniest React implementation of the Screen Wake Lock API. It provides a way to p
 
 - 🌐 Follows the **[W3C Screen Wake Lock API specifications](https://w3c.github.io/screen-wake-lock/)**
 - 🎣 **Easy to use** - just one react hook `useWakeLock`
-- 🪶 **Lightweight** - _less than *[370b](https://bundlephobia.com/result?p=react-screen-wake-lock)*_
+- 🪶 **Lightweight** - _less than **[370b](https://bundlephobia.com/result?p=react-screen-wake-lock)**_
 - 🔌 **Easily integration** - _it works without additional configuration (React, remix, Next.js...)_
 - ⚠️ **Browser Support** - [Screen Wake Lock API](https://caniuse.com/wake-lock)
 
 <details>
-    <summary>`react-screen-wake-lock` use native Screen Wake Lock API under the hood which is not supported by all browsers.</summary>
+    <summary> <code>react-screen-wake-lock</code> use native Screen Wake Lock API under the hood which is not supported by all browsers.</summary>
     <a href="https://caniuse.com/wake-lock">
       <picture>
         <source type="image/webp" srcset="https://caniuse.bitsofco.de/image/wake-lock.webp" width="600px">
@@ -91,7 +91,7 @@ export default Component;
 
 ### Returns
 
-|     Prop      |                                      description                                      |   type   |
+|     Prop      |                                      description                                      |   type   |           |
 | :-----------: | :-----------------------------------------------------------------------------------: | :------: | --------- |
 | `isSupported` |                     Browser support for the Screen Wake Lock API                      | boolean  |
 |  `released`   | Once WakeLock is released, `released` become `true` and the value never changes again | boolean  | undefined |
