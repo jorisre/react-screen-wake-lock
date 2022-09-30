@@ -25,33 +25,26 @@
     "navigator.wakeLock"
   ],
   "sideEffects": false,
+  "type": "module",
   "source": "src/index.ts",
-  "main": "dist/react-screen-wake-lock.js",
-  "module": "dist/react-screen-wake-lock.module.js",
+  "main": "dist/react-screen-wake-lock.cjs",
+  "exports": "./dist/react-screen-wake-lock.esm.js",
   "umd:main": "dist/react-screen-wake-lock.umd.js",
   "unpkg": "dist/react-screen-wake-lock.umd.js",
-  "exports": {
-    ".": {
-      "browser": "./dist/react-screen-wake-lock.module.js",
-      "umd": "./dist/react-screen-wake-lock.umd.js",
-      "import": "./dist/react-screen-wake-lock.module.js",
-      "require": "./dist/react-screen-wake-lock.js"
-    }
-  },
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14.16"
   },
   "scripts": {
     "postinstall": "yarn husky install",
     "start": "microbundle watch",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
-    "build:other": "microbundle --define process.env.NODE_ENV=production -f cjs,umd,modern",
+    "build:other": "microbundle --define process.env.NODE_ENV=production -f cjs,umd",
     "build:es": "microbundle -f es",
     "test": "jest",
     "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx .",
@@ -64,15 +57,11 @@
   },
   "size-limit": [
     {
-      "path": "dist/react-screen-wake-lock.js",
+      "path": "dist/react-screen-wake-lock.cjs",
       "limit": "393 B"
     },
     {
-      "path": "dist/react-screen-wake-lock.modern.js",
-      "limit": "314 B"
-    },
-    {
-      "path": "dist/react-screen-wake-lock.module.js",
+      "path": "dist/react-screen-wake-lock.esm.js",
       "limit": "415 B"
     },
     {
