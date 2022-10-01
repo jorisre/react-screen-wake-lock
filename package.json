@@ -47,33 +47,15 @@
     "build:other": "microbundle --define process.env.NODE_ENV=production -f cjs,umd",
     "build:es": "microbundle -f es",
     "test": "jest",
-    "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx .",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
-    "semantic-release": "semantic-release"
+    "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx ."
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
-  "size-limit": [
-    {
-      "path": "dist/react-screen-wake-lock.cjs",
-      "limit": "393 B"
-    },
-    {
-      "path": "dist/react-screen-wake-lock.esm.js",
-      "limit": "415 B"
-    },
-    {
-      "path": "dist/react-screen-wake-lock.umd.js",
-      "limit": "398 B"
-    }
-  ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^8.1.0",
-    "@testing-library/dom": "^8.18.1",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/dom": "^7.30.1",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/react-hooks": "^5.1.0",
     "@types/dom-screen-wake-lock": "^1.0.0",
     "@types/jest": "^29.1.1",
     "@types/react": "^18.0.13",
@@ -95,8 +77,6 @@
     "react-dom": "18.2.0",
     "react-test-renderer": "18.2.0",
     "rimraf": "^3.0.2",
-    "semantic-release": "^19.0.5",
-    "size-limit": "^8.1.0",
     "tiny-warning": "^1.0.3",
     "ts-jest": "^29.0.3",
     "typescript": "^4.2.3"
