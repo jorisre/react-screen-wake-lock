@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@testing-library/dom": "^7.30.1",
-    "@testing-library/react": "^11.2.5",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/react-hooks": "^5.1.0",
     "@types/dom-screen-wake-lock": "^1.0.0",
     "@types/jest": "^29.1.1",
