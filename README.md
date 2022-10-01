@@ -1,4 +1,4 @@
-<div align="center" style="font-size: ><h1>🌗 react-screen-wake-lock</strong></div>
+<div align="center"><h1>🌗 react-screen-wake-lock</h1></div>
 <p align="center">
 Tiniest React implementation of the Screen Wake Lock API. <br/>It provides a way to prevent devices from dimming or locking the screen when an application needs to keep running.
 </p>
