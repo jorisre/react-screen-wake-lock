@@ -17,7 +17,7 @@ Tiniest React implementation of the Screen Wake Lock API. <br/>It provides a way
 
 - 🌐 Follows the **[W3C Screen Wake Lock API specifications](https://w3c.github.io/screen-wake-lock/)**
 - 🪝 **Easy to use** - Just one react hook `useWakeLock`
-- 🪶 **Lightweight & 0 Dependency** - _Less than **[370b](https://bundlephobia.com/result?p=react-screen-wake-lock)**_
+- 🪶 **Lightweight & 0 Dependency** - _Less than **[650b](https://bundlephobia.com/result?p=react-screen-wake-lock)**_
 - 🔌 **Easily integration** - _It works without additional configuration (React, remix, Next.js...)_
 - 🧪 **Ready to test** - Mocks the Screen Wake Lock with [Jest](https://github.com/jorisre/jest-wake-lock-mock#readme)
 - ⚠️ **Browser Support** - [Screen Wake Lock API](https://caniuse.com/wake-lock)
