@@ -1,5 +1,7 @@
 import * as React from 'react';
-import warning from 'tiny-warning';
+
+const warn = (content: string) =>
+  console.warn('[react-screen-wake-lock]: ' + content);
 
 export interface WakeLockOptions {
   onError?: (error: Error) => void;
@@ -21,16 +23,15 @@ export const useWakeLock = ({
   const request = React.useCallback(
     async (type: WakeLockType = 'screen') => {
       const isWakeLockAlreadyDefined = wakeLock.current != null;
-      if (!isSupported || isWakeLockAlreadyDefined) {
-        warning(
-          !isSupported,
+      if (!isSupported) {
+        return warn(
           "Calling the `request` function has no effect, Wake Lock Screen API isn't supported"
         );
-        warning(
-          isWakeLockAlreadyDefined,
+      }
+      if (isWakeLockAlreadyDefined) {
+        return warn(
           'Calling `request` multiple times without `release` has no effect'
         );
-        return;
       }
 
       try {
@@ -54,17 +55,14 @@ export const useWakeLock = ({
 
   const release = React.useCallback(async () => {
     const isWakeLockUndefined = wakeLock.current == null;
-    if (!isSupported || isWakeLockUndefined) {
-      warning(
-        !isSupported,
+    if (!isSupported) {
+      return warn(
         "Calling the `release` function has no effect, Wake Lock Screen API isn't supported"
       );
+    }
 
-      warning(
-        isWakeLockUndefined,
-        'Calling `release` before `request` has no effect.'
-      );
-      return;
+    if (isWakeLockUndefined) {
+      return warn('Calling `release` before `request` has no effect.');
     }
 
     wakeLock.current && (await wakeLock.current.release());
