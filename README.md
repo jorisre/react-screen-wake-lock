@@ -5,7 +5,7 @@ Tiniest React implementation of the Screen Wake Lock API. <br/>It provides a way
 
 <br />
 <p align="center">
-<a href="react-screen-wake-lock.vercel.app/">Demo</a> 
+<a href="https://react-screen-wake-lock.vercel.app/">Demo</a> 
 <span> · </span>
   <a href="https://github.com/jorisre/react-screen-wake-lock#installation">Documentation</a> 
 <span> · </span>
