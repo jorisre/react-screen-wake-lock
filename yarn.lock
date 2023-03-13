@@ -1566,9 +1566,9 @@
     "@babel/types" "^7.3.0"
 
 "@types/dom-screen-wake-lock@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@types/dom-screen-wake-lock/-/dom-screen-wake-lock-1.0.0.tgz#c06e415fca0afb5a6e727b900f3cb8ba3993d130"
-  integrity sha512-3o5jkfJsuhFcKj2EZ3PiEoiQQbB3J/nffsXJBKtyubkBHsX2siS6b4uij3ukr5xgDHsF4BaT9fHo8DneAw/YxA==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/dom-screen-wake-lock/-/dom-screen-wake-lock-1.0.1.tgz#8f125f91821d49f51feee95e6db128eb6974aea9"
+  integrity sha512-WJQas3OFGcC8AeMzaa7FwzzbNNfanuV2R12kQYNp4BkUMghsRz5JxJ5RgVhJifhw7t0s6LvRSWZArmKbMDZ+5g==
 
 "@types/estree@*":
   version "1.0.0"
