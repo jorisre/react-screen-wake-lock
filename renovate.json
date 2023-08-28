@@ -1,0 +1,8 @@
+{
+  "groupName": "All",
+  "labels": [
+    "renovate"
+  ],
+  "rangeStrategy": "bump",
+  "schedule": "at any time"
+}
