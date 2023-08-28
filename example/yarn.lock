@@ -584,10 +584,10 @@ react-refresh@^0.10.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.10.0.tgz#2f536c9660c0b9b1d500684d9e52a65e7404f7e3"
   integrity sha512-PgidR3wST3dDYKr6b4pJoqQFpPGNKDSCDx4cZoshjXipw3LzO7mG1My2pwEzz2JVkF+inx3xRpDeQLFQGH/hsQ==
 
-react-screen-wake-lock@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/react-screen-wake-lock/-/react-screen-wake-lock-3.0.1.tgz#53132b28384bb66fc6838b846ffeced25b42c8d3"
-  integrity sha512-7igtGC2btjFiPqn7JoqRqrUvSV9wX7ZB8uCtP6LA9qYcTfY5i7VqelfjZ/b57jnGR9Q5TykAaX4Lkeok4j06jA==
+react-screen-wake-lock@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-screen-wake-lock/-/react-screen-wake-lock-3.0.2.tgz#ce185ebfdb74a82c89d532726738f60466f00438"
+  integrity sha512-f88vcfMG1AWYRSIWQ5Qx5YVboH6TSL0F4ZlFLERZp6aKiZRGVRAAJ9wedJdO5jqTMcCDZ4OXJ8PjcSkDmvGSBg==
 
 rollup@^3.27.1:
   version "3.28.1"
