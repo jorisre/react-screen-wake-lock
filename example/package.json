@@ -8,7 +8,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "react-screen-wake-lock": "^3.0.1"
+    "react-screen-wake-lock": "^3.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.21",
