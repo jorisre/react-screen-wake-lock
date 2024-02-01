@@ -1,24 +1,34 @@
 {
-  "name": "react-screen-wake-lock_example",
-  "license": "MIT",
-  "version": "0.0.0",
+  "name": "example",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "react-screen-wake-lock": "^3.0.1"
+    "@radix-ui/react-icons": "^1.3.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "next": "14.1.0",
+    "next-themes": "^0.2.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7",
+    "react-screen-wake-lock": "link:react-screen-wake-lock"
   },
   "devDependencies": {
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react-refresh": "^1.3.6",
-    "typescript": "^5.2.2",
-    "vite": "^4.4.9"
-  },
-  "alias": {
-    "react": "../node_modules/react",
-    "react-dom": "../node_modules/react-dom/profiling"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0"
   }
 }
