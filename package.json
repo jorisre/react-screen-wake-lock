@@ -45,7 +45,7 @@
     "node": ">=v14.21.3"
   },
   "scripts": {
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "start": "microbundle watch",
