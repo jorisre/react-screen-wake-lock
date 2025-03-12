@@ -1,5 +1,5 @@
-import { act, renderHook } from '@testing-library/react-hooks';
-import { useWakeLock, WakeLockOptions } from '../src';
+import { renderHook, act } from '@testing-library/react';
+import { useWakeLock } from '../src';
 
 const noop = () => {};
 
@@ -31,8 +31,8 @@ test('in development|test mode there are warnings displayed if `request` or `rel
 
   expect(result.current.released).not.toBeDefined();
   expect(result.current.type).not.toBeDefined();
-  expect(spyedConsoleWarn).toBeCalledWith(
-    "[react-screen-wake-lock]: Calling the `request` function has no effect, Wake Lock Screen API isn't supported"
+  expect(spyedConsoleWarn).toHaveBeenCalledWith(
+    "[react-screen-wake-lock]: Calling the `request` function has no effect, Wake Lock Screen API isn't supported",
   );
 
   await act(async () => {
@@ -41,8 +41,8 @@ test('in development|test mode there are warnings displayed if `request` or `rel
 
   expect(result.current.released).not.toBeDefined();
   expect(result.current.type).not.toBeDefined();
-  expect(spyedConsoleWarn).toBeCalledWith(
-    "[react-screen-wake-lock]: Calling the `release` function has no effect, Wake Lock Screen API isn't supported"
+  expect(spyedConsoleWarn).toHaveBeenCalledWith(
+    "[react-screen-wake-lock]: Calling the `release` function has no effect, Wake Lock Screen API isn't supported",
   );
 });
 
@@ -72,20 +72,16 @@ test('useWakeLock handles request then release with success', async () => {
 });
 
 test('useWakeLock handles request and throw an error', async () => {
-  const requestError = new Error(
-    'An error occured during `navigator.wakeLock.request` 💥'
-  );
+  const requestError = new Error('An error occured during `navigator.wakeLock.request` 💥');
   const handleError = jest.fn();
-  jest
-    .spyOn(window.navigator.wakeLock, 'request')
-    .mockRejectedValueOnce(requestError);
+  jest.spyOn(window.navigator.wakeLock, 'request').mockRejectedValueOnce(requestError);
 
-  const { result } = renderHook<
-    WakeLockOptions,
-    ReturnType<typeof useWakeLock>
-  >((props) => useWakeLock(props), {
-    initialProps: { onError: handleError },
-  });
+  const { result } = renderHook(
+    (props) => useWakeLock(props),
+    {
+      initialProps: { onError: handleError },
+    },
+  );
 
   // Handle wakeLock request
   await act(async () => {
@@ -109,7 +105,7 @@ test('in development|test mode, a warning is displayed when calling `release` be
   });
 
   expect(spyedConsoleWarn).toHaveBeenCalledWith(
-    '[react-screen-wake-lock]: Calling `release` before `request` has no effect.'
+    '[react-screen-wake-lock]: Calling `release` before `request` has no effect.',
   );
 });
 
@@ -124,18 +120,18 @@ test('once WakeLock released and in development|test mode, a warning is displaye
   });
 
   expect(spyedConsoleWarn).toHaveBeenCalledWith(
-    '[react-screen-wake-lock]: Calling `release` before `request` has no effect.'
+    '[react-screen-wake-lock]: Calling `release` before `request` has no effect.',
   );
 });
 
 test('useWakeLock should call `onRequest` when request done with success', async () => {
   const handleRequest = jest.fn();
-  const { result } = renderHook<
-    WakeLockOptions,
-    ReturnType<typeof useWakeLock>
-  >((props) => useWakeLock(props), {
-    initialProps: { onRequest: handleRequest },
-  });
+  const { result } = renderHook(
+    (props) => useWakeLock(props),
+    {
+      initialProps: { onRequest: handleRequest },
+    },
+  );
 
   await act(async () => void (await result.current.request()));
 
@@ -152,19 +148,19 @@ test('in development|test show a warning if `request` is called more than once w
   });
 
   expect(spyedConsoleWarn).toHaveBeenCalledWith(
-    '[react-screen-wake-lock]: Calling `request` multiple times without `release` has no effect'
+    '[react-screen-wake-lock]: Calling `request` multiple times without `release` has no effect',
   );
   expect(window.navigator.wakeLock.request).toHaveBeenCalledTimes(1);
 });
 
 test('useWakeLock should call `onRelease` when wakeLockSentinel is released', async () => {
   const handleRelease = jest.fn();
-  const { result } = renderHook<
-    WakeLockOptions,
-    ReturnType<typeof useWakeLock>
-  >((props) => useWakeLock(props), {
-    initialProps: { onRelease: handleRelease },
-  });
+  const { result } = renderHook(
+    (props) => useWakeLock(props),
+    {
+      initialProps: { onRelease: handleRelease },
+    },
+  );
 
   expect(handleRelease).not.toHaveBeenCalled();
 
