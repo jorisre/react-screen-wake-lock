@@ -7,12 +7,14 @@ export interface WakeLockOptions {
   onError?: (error: Error) => void;
   onRequest?: () => void;
   onRelease?: EventListener;
+  reacquireOnPageVisible?: boolean;
 }
 
 export const useWakeLock = ({
   onError,
   onRequest,
   onRelease,
+  reacquireOnPageVisible = false,
 }: WakeLockOptions | undefined = {}) => {
   const [released, setReleased] = React.useState<boolean | undefined>();
   const wakeLock = React.useRef<WakeLockSentinel | null>(null);
@@ -67,6 +69,26 @@ export const useWakeLock = ({
 
     wakeLock.current && (await wakeLock.current.release());
   }, [isSupported]);
+
+  React.useEffect(() => {
+    if (reacquireOnPageVisible) {
+      const handleVisibilityChange = async () => {
+        if (wakeLock.current && document.visibilityState === 'visible') {
+          try {
+            wakeLock.current = await navigator.wakeLock.request('screen');
+          } catch (error: any) {
+            onError?.(error);
+          }
+        }
+      };
+
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+      return () => {
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      };
+    }
+    return undefined;
+  }, [reacquireOnPageVisible, onError]);
 
   return {
     isSupported,

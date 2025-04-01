@@ -60,6 +60,7 @@ function Component() {
     onRequest: () => alert('Screen Wake Lock: requested!'),
     onError: () => alert('An error happened 💥'),
     onRelease: () => alert('Screen Wake Lock: released!'),
+    reacquireOnPageVisible: true,
   });
 
   return (
@@ -69,10 +70,7 @@ function Component() {
         <br />
         Released: <b>{`${released}`}</b>
       </p>
-      <button
-        type="button"
-        onClick={() => (released === false ? release() : request())}
-      >
+      <button type="button" onClick={() => (released === false ? release() : request())}>
         {released === false ? 'Release' : 'Request'}
       </button>
     </div>
@@ -84,11 +82,12 @@ export default Component;
 
 ## Props
 
-|    Prop     |                          description                          |   default   | required |
-| :---------: | :-----------------------------------------------------------: | :---------: | :------: |
-| `onRequest` |      called on successfully `navigator.wakeLock.request`      | `undefined` |  false   |
-|  `onError`  | called when caught an error from `navigator.wakeLock.request` | `undefined` |  false   |
-| `onRelease` |               called when wake lock is released               | `undefined` |  false   |
+|           Prop           |                          description                          |   default   | required |
+| :----------------------: | :-----------------------------------------------------------: | :---------: | :------: |
+|       `onRequest`        |      called on successfully `navigator.wakeLock.request`      | `undefined` |  false   |
+|        `onError`         | called when caught an error from `navigator.wakeLock.request` | `undefined` |  false   |
+|       `onRelease`        |               called when wake lock is released               | `undefined` |  false   |
+| `reacquireOnPageVisible` | Reacquires the wake lock when the page becomes visible again  |   `false`   |  false   |
 
 ### Returns
 
