@@ -172,7 +172,7 @@ test('useWakeLock should call `onRelease` when wakeLockSentinel is released', as
   expect(handleRelease).toHaveBeenCalledWith(expect.any(Event));
 });
 
-test('useWakeLock reacquires wake lock on page visibility change when `reacquireOnPageVisible` is true', async () => {
+test('after releasing, useWakeLock reacquires wake lock on page visibility change when `reacquireOnPageVisible` is true', async () => {
   const handleError = jest.fn();
   const { result } = renderHook(() => useWakeLock({ reacquireOnPageVisible: true, onError: handleError }));
 
@@ -183,6 +183,12 @@ test('useWakeLock reacquires wake lock on page visibility change when `reacquire
   expect(window.navigator.wakeLock.request).toHaveBeenCalledTimes(1);
   expect(result.current.type).toEqual('screen');
   expect(result.current.released).toBe(false);
+
+  await act(async () => {
+    await result.current.release();
+  });
+
+  expect(result.current.released).toBe(true);
 
   // Mock document.visibilityState to 'hidden'
   Object.defineProperty(document, 'visibilityState', {

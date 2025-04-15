@@ -56,7 +56,7 @@ export const useWakeLock = ({
   );
 
   const release = React.useCallback(async () => {
-    const isWakeLockUndefined = wakeLock.current == null;
+    const isWakeLockUndefined = wakeLock.current === null;
     if (!isSupported) {
       return warn(
         "Calling the `release` function has no effect, Wake Lock Screen API isn't supported"
@@ -73,9 +73,9 @@ export const useWakeLock = ({
   React.useEffect(() => {
     if (reacquireOnPageVisible) {
       const handleVisibilityChange = async () => {
-        if (wakeLock.current && document.visibilityState === 'visible') {
+        if (wakeLock.current === null && document.visibilityState === 'visible') {
           try {
-            wakeLock.current = await navigator.wakeLock.request('screen');
+            await request();
           } catch (error: any) {
             onError?.(error);
           }
@@ -88,7 +88,7 @@ export const useWakeLock = ({
       };
     }
     return undefined;
-  }, [reacquireOnPageVisible, onError]);
+  }, [reacquireOnPageVisible, request, onError]);
 
   return {
     isSupported,
