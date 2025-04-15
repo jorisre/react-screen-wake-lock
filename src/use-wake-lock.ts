@@ -75,7 +75,7 @@ export const useWakeLock = ({
       const handleVisibilityChange = async () => {
         if (wakeLock.current === null && document.visibilityState === 'visible') {
           try {
-            wakeLock.current = await navigator.wakeLock.request('screen');
+            await request();
           } catch (error: any) {
             onError?.(error);
           }
