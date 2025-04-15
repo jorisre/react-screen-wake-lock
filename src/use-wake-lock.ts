@@ -73,7 +73,7 @@ export const useWakeLock = ({
   React.useEffect(() => {
     if (reacquireOnPageVisible) {
       const handleVisibilityChange = async () => {
-        if (wakeLock.current && document.visibilityState === 'visible') {
+        if (wakeLock.current == null && document.visibilityState === 'visible') {
           try {
             wakeLock.current = await navigator.wakeLock.request('screen');
           } catch (error: any) {
