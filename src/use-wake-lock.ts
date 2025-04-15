@@ -88,7 +88,7 @@ export const useWakeLock = ({
       };
     }
     return undefined;
-  }, [reacquireOnPageVisible, onError]);
+  }, [reacquireOnPageVisible, request, onError]);
 
   return {
     isSupported,
