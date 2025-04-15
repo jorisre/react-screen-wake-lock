@@ -205,3 +205,43 @@ test('useWakeLock reacquires wake lock on page visibility change when `reacquire
   expect(result.current.released).toBe(false);
   expect(handleError).not.toHaveBeenCalled();
 });
+
+test('after releasing, useWakeLock reacquires wake lock on page visibility change when `reacquireOnPageVisible` is true', async () => {
+  const handleError = jest.fn();
+  const { result } = renderHook(() => useWakeLock({ reacquireOnPageVisible: true, onError: handleError }));
+
+  await act(async () => {
+    await result.current.request();
+  });
+
+  expect(window.navigator.wakeLock.request).toHaveBeenCalledTimes(1);
+  expect(result.current.type).toEqual('screen');
+  expect(result.current.released).toBe(false);
+
+  await act(async () => {
+    await result.current.release();
+  });
+
+  expect(result.current.released).toBe(true);
+
+  // Mock document.visibilityState to 'hidden'
+  Object.defineProperty(document, 'visibilityState', {
+    value: 'hidden',
+    configurable: true,
+  });
+  document.dispatchEvent(new Event('visibilitychange'));
+
+  // Mock document.visibilityState to 'visible'
+  Object.defineProperty(document, 'visibilityState', {
+    value: 'visible',
+    configurable: true,
+  });
+  await act(async () => {
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+
+  expect(window.navigator.wakeLock.request).toHaveBeenCalledTimes(2);
+  expect(result.current.type).toEqual('screen');
+  expect(result.current.released).toBe(false);
+  expect(handleError).not.toHaveBeenCalled();
+});
